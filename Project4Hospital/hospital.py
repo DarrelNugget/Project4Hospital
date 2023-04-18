@@ -47,4 +47,31 @@ class Doctor:
     
     def __str__(self):
         return f"{self.doctorID}_{self.name}_{self.specialization}_{self.workingTime}_{self.qualification}_{self.roomNumber}"
-        
+
+
+
+class management_methods:
+
+    choice = input('''
+please choose from the following options:
+1-Doctors submenu
+2-patients submenu
+3-Exit the program''')
+
+    while choice != 3:
+    
+        if (choice == 1): #doctor submenu
+            print#placeholders
+
+
+        elif(choice == 2):#patient submenu
+            print#placeholders
+
+
+        elif(choice == 3):#exits the program
+            break
+
+        else:#invalid inout message
+            print('thats not a valid input please try again')
+
+    
