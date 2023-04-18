@@ -15,6 +15,11 @@ class Doctor:
     def getDoctorID(self):
         return self.doctorID
     
-
+    def setName(self, newName):
+        self.name = newName
+    
+    def getName(self):
+        return self.name
+    
         
         
