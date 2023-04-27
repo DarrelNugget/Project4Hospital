@@ -183,6 +183,7 @@ class Patient:
 class PatientManager:
     def __init__(self):
         self.patients = []
+        self.read_patientsfile()
 
     def format_patient_info_for_file(self, patient):
         return f"{patient.get_pid}\t{patient.get_name}\t{patient.get_disease}\t{patient.get_gender}\t{patient.get_age}"
