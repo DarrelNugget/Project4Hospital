@@ -140,6 +140,7 @@ class doctorManager:
 manager = doctorManager()
 
 manager.read_doctors_file()
+
 manager.display_doctors_list()  
 
 
@@ -223,6 +224,8 @@ class management_methods:
 
         else:
             print('Invalid choice. Please try again.')
+manager.display_doctors_list()
+
 
 
 
