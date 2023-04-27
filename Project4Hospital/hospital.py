@@ -97,55 +97,17 @@ class doctorManager:
         if found == False:
             print("Can't find the doctor with that name.")
     
-
-    def edit_doctor_info(self):
-        id = input("Enter doctor ID to edit: ")
-        for doctor in self.doctors:
-            if doctor.get_doctor_id() == id:
-                name = input("Enter the new name: ")
-                specialization = input("Enter the new specialization: ")
-                working_time = input("Enter the new working time: ")
-                qualification = input("Enter the new qualification: ")
-                room_number = input("Enter the new room number: ")
-
-                doctor.set_name(name)
-                doctor.set_specialization(specialization)
-                doctor.set_working_time(working_time)
-                doctor.set_qualification(qualification)
-                doctor.set_room_number(room_number)
-
-                self.write_list_of_doctors_to_file()
-
-                print("Doctor info edited successfully.")
-                return
-        print("Cannot find the doctor...")
-        
-    def display_doctors_list(self):
-        for doctor in self.doctors[1:]:
-            newdoctor = str(doctor)
-            print(newdoctor.replace("_", "   "))
-
-    def write_list_of_doctors_to_file(self):
-        with open("doctors.txt", "w") as f:
-            for doctor in self.doctors:
-                f.write(self.format_dr_info(doctor) + "\n")
-                
-    def add_dr_to_file(self):
-        doctor = self.enter_dr_info()
-        self.doctors.append(doctor)
-        with open("doctors.txt", "a") as f:
-            f.write(self.format_dr_info(doctor) + "\n")
-        print("New doctor added successfully!")
-
-manager = doctorManager()
-
-manager.read_doctors_file()
-manager.display_doctors_list()
+        if (choice == 1): #doctor submenu
+            print#placeholders
 
 
+        elif(choice == 2):#patient submenu
+            print#placeholders
 
 
+        elif(choice == 3):#exits the program
+            break
 
-
-
+        else:#invalid inout message
+            print('thats not a valid input please try again')
 
