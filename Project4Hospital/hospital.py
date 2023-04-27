@@ -87,27 +87,22 @@ class doctorManager:
             print("Can't find the doctor with that ID.")   
 
 
-    def search_doctor_by_name(self):
-        name = input("Enter doctor name: ")
-        for doctor in self.doctors:
-            if doctor.get_name() == name:
-                print(doctor)
-                found = True
-                break
-        if found == False:
-            print("Can't find the doctor with that name.")
-    
-        if (choice == 1): #doctor submenu
-            print#placeholders
+                if choice == '1':
+                    #display_patients()
+                elif choice == '2':
+                    #search_patient_by_id()
+                elif choice == '3':
+                    #add_patient()
+                elif choice == '4':
+                    #edit_patient()
+                elif choice == '5':
+                    break
+                else:
+                    print('Invalid choice. Please try again.')
 
-
-        elif(choice == 2):#patient submenu
-            print#placeholders
-
-
-        elif(choice == 3):#exits the program
+        elif main_menu_choice == '3':
+            print('Exiting program...')
             break
 
-        else:#invalid inout message
-            print('thats not a valid input please try again')
-
+        else:
+            print('Invalid choice. Please try again.')
