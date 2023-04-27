@@ -138,12 +138,7 @@ class doctorManager:
             f.write(self.format_dr_info(doctor) + "\n")
         print("New doctor added successfully!")
 
-manager = doctorManager()
-
-manager.read_doctors_file()
-
-manager.display_doctors_list()  
-
+#Patient Part --------------------------------------------------------------------------------------------------------------------
 class Patient:
     def __init__(self, pid, name, disease, gender, age):
         self.pid = pid
@@ -203,7 +198,7 @@ class PatientManager:
 
     # Helper method to read patients data from file
     def read_patientsfile(self):
-        with open("Project\Project Work\Project4Hospital\Project4Hospital\patients.txt", 'r') as file:
+        with open("patients.txt", 'r') as file:
             lines = file.readlines()
             for line in lines:
                 parts = line.strip().split("_")
@@ -257,88 +252,89 @@ class PatientManager:
             print(new_patient.replace('_', '\t'))
 
     def write_list_of_patients_to_file(self):
-        with open("Project\Project Work\Project4Hospital\Project4Hospital\patients.txt", 'w') as file:
+        with open("patients.txt", 'w') as file:
             for patient in self.patients[0:]:
                 file.write(self.format_patient_info_for_file(patient) + "\n")
                 file.close()
 
     def add_patient_to_file(self):
         new_patient = self.enter_patient_info()
-        file = open("Project\Project Work\Project4Hospital\Project4Hospital\patients.txt",'a')
+        file = open("patients.txt",'a')
         file.write('\n')
         new_patient_string = str(new_patient)
         file.write(new_patient_string)
         file.close()
         print(f"Patient whose ID is {new_patient_string[:2]} has been added")
         
-        class management_methods:
+class management_methods:
 
     # Define a function to display the main menu
     def display_main_menu():
-        print('''Main Menu
-        1. Doctors
-        2. Patients
-        3. Exit''')
+            print('''Main Menu
+            1. Doctors
+            2. Patients
+            3. Exit''')
 
-    # Define a function to display the Doctors submenu
+        # Define a function to display the Doctors submenu
     def display_doctors_menu():
-        print('''Doctors Menu
-        1. Display doctors list
-        2. Search for a doctor by ID
-        3. Search for a doctor by name
-        4. Add a new doctor
-        5. Edit existing doctor information
-        6. Return to main menu
-        ''')
+            print('''Doctors Menu
+            1. Display doctors list
+            2. Search for a doctor by ID
+            3. Search for a doctor by name
+            4. Add a new doctor
+            5. Edit existing doctor information
+            6. Return to main menu
+            ''')
 
-    # Define a function to display the Patients submenu
+        # Define a function to display the Patients submenu
     def display_patients_menu():
-        print('''Patients Menu
-        1. Display patients list
-        2. Search for a patient by ID
-        3. Add a new patient
-        4. Edit existing patient information
-        5. Return to main menu
-        ''')
+            print('''Patients Menu
+            1. Display patients list
+            2. Search for a patient by ID
+            3. Add a new patient
+            4. Edit existing patient information
+            5. Return to main menu
+            ''')
 
 
     while True:
         display_main_menu()
         main_menu_choice = input('Enter your choice (1-3): ')
-
+        manager = doctorManager()
+        pmanager = PatientManager()
         if main_menu_choice == '1':
             while True:
                 display_doctors_menu()
                 choice = input('Enter your choice (1-6): ')
 
                 if choice == '1':
-                    #display_doctors()
+                    manager.display_doctors_list() 
                 elif choice == '2':
-                    #search_doctor_by_id()
+                    manager.search_doctor_by_id()
                 elif choice == '3':
-                    #search_doctor_by_name()
+                    manager.search_doctor_by_name()
                 elif choice == '4':
-                    #add_doctor()
+                    manager.add_dr_to_file()
                 elif choice == '5':
-                    #edit_doctor()
+                    manager.edit_doctor_info()
                 elif choice == '6':
                     break
                 else:
                     print('Invalid choice. Please try again.')
 
-        elif main_menu_choice == '2':
+        elif main_menu_choice == '2': 
             while True:
                 display_patients_menu()
                 choice = input('Enter your choice (1-5): ')
 
                 if choice == '1':
-                    #display_patients()
+                    pmanager.display_patients_list()
                 elif choice == '2':
-                    #search_patient_by_id()
+                    pmanager.search_patient_by_id()
                 elif choice == '3':
-                    #add_patient()
+                    pmanager.add_patient_to_file()
                 elif choice == '4':
-                    #edit_patient()
+                    pmanager.edit_patient_info_by_id()
                 elif choice == '5':
                     break
                 else:
@@ -350,3 +346,7 @@ class PatientManager:
 
         else:
             print('Invalid choice. Please try again.')
+  
+test = management_methods()
+
+test()
