@@ -224,7 +224,6 @@ class management_methods:
 
         else:
             print('Invalid choice. Please try again.')
-manager.display_doctors_list()
 
 
 
